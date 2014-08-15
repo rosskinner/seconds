@@ -13,3 +13,31 @@
  *= require_tree .
  *= require_self
  */
+
+@import url(http://fonts.googleapis.com/css?family=Vast+Shadow);
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,700);
+
+body {
+  background-image:url(http://payload266.cargocollective.com/1/14/450171/7627346/20130121-DSC_1200-4_o.jpg);
+  background-size:cover;
+  background-blend-mode: screen;
+  background-color: red;
+}
+
+h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 20em;
+  width:100%;
+  margin: 0 auto;
+  text-align:center;
+  line-height:0;
+  -webkit-transform: scale(1, 2.3);
+  position:absolute;
+  top:1.05em;
+  z-index:1;
+  color:#FFF;
+
+}
+
+
+
