@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require p5.js
+//= require p5.dom.js
 //= require_tree .
