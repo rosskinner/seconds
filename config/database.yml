@@ -1,0 +1,22 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+
+development:
+  <<: *default
+  database: secondloop_development
+  username: Ros
+
+test:
+  <<: *default
+  database: secondloop_test
+
+production:
+  <<: *default
+  database: secondloop_production
+  username: Ros
+  password: <%= ENV['SECONDLOOP_DATABASE_PASSWORD'] %>
