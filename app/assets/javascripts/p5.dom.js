@@ -1,7 +1,7 @@
 /*! p5.dom.js v0.1.0 August 6, 2014 */
 /**
- * <p>The web is much more than just canvas and p5.dom makes it easy to interact 
- * with other HTML5 objects, including text, hyperlink, image, input, video, 
+ * <p>The web is much more than just canvas and p5.dom makes it easy to interact
+ * with other HTML5 objects, including text, hyperlink, image, input, video,
  * audio, and webcam.</p>
  * <p>There are a set of creation methods, and some other stuff... @TODO.</p>
  *
@@ -12,7 +12,7 @@
  * <a href="http://p5js.org/download">p5 complete</a> or you can download the single file
  * <a href="https://raw.githubusercontent.com/lmccart/p5.js/master/lib/addons/p5.dom.js">
  * here</a>.</p>
- * 
+ *
  *
  * @module p5.dom
  * @submodule p5.dom
@@ -30,7 +30,7 @@ var p5DOM = (function(){
    * Searches the page for an element with given ID and returns it as
    * a p5.Element. The DOM node itself can be accessed with .elt.
    * Returns null if none found.
-   * 
+   *
    * @method getElement
    * @param  {String} id id of element to search for
    * @return {Object/p5.Element|Null} p5.Element containing node found
@@ -48,7 +48,7 @@ var p5DOM = (function(){
    * Searches the page for elements with given class and returns an
    * array of p5.Elements. The DOM nodes themselves can be accessed
    * with .elt. Returns an empty array if none found.
-   * 
+   *
    * @method getElements
    * @param  {String} class class name of elements to search for
    * @return {Array} array of p5.Element wrapped nodes found
@@ -82,7 +82,7 @@ var p5DOM = (function(){
 
   /**
    * Helpers for create methods.
-   */  
+   */
   function addElement(elt, pInst, media) {
     var node = pInst._userNode ? pInst._userNode : document.body;
     node.appendChild(elt);
@@ -93,9 +93,9 @@ var p5DOM = (function(){
 
   /**
    * Creates a &lt;div&gt;&lt;/div&gt; element in the DOM with given inner HTML.
-   * Appends to the container node if one is specified, otherwise 
+   * Appends to the container node if one is specified, otherwise
    * appends to body.
-   * 
+   *
    * @method createDiv
    * @param  {String} html inner HTML for element created
    * @return {Object/p5.Element} pointer to p5.Element holding created
@@ -105,9 +105,9 @@ var p5DOM = (function(){
   /**
    * Creates a &lt;p&gt;&lt;/p&gt; element in the DOM with given inner HTML. Used
    * for paragraph length text.
-   * Appends to the container node if one is specified, otherwise 
+   * Appends to the container node if one is specified, otherwise
    * appends to body.
-   * 
+   *
    * @method createP
    * @param  {String} html inner HTML for element created
    * @return {Object/p5.Element} pointer to p5.Element holding created
@@ -116,9 +116,9 @@ var p5DOM = (function(){
 
   /**
    * Creates a &lt;span&gt;&lt;/span&gt; element in the DOM with given inner HTML.
-   * Appends to the container node if one is specified, otherwise 
+   * Appends to the container node if one is specified, otherwise
    * appends to body.
-   * 
+   *
    * @method createSpan
    * @param  {String} html inner HTML for element created
    * @return {Object/p5.Element} pointer to p5.Element holding created
@@ -136,10 +136,10 @@ var p5DOM = (function(){
 
   /**
    * Creates an &lt;img /&gt; element in the DOM with given src and
-   * alternate text. 
-   * Appends to the container node if one is specified, otherwise 
+   * alternate text.
+   * Appends to the container node if one is specified, otherwise
    * appends to body.
-   * 
+   *
    * @method createImg
    * @param  {String} src src path or url for image
    * @param  {String} alt alternate text to be used if image does not
@@ -159,9 +159,9 @@ var p5DOM = (function(){
 
   /**
    * Creates an &lt;a&gt;&lt;/a&gt; element in the DOM for including a hyperlink.
-   * Appends to the container node if one is specified, otherwise 
+   * Appends to the container node if one is specified, otherwise
    * appends to body.
-   * 
+   *
    * @method createA
    * @param  {String} href       url of page to link to
    * @param  {String} html       inner html of link element to display
@@ -184,9 +184,9 @@ var p5DOM = (function(){
   /**
    * Creates a slider &lt;input&gt;&lt;/input&gt; element in the DOM.
    * Use .size() to set the display length of the slider.
-   * Appends to the container node if one is specified, otherwise 
+   * Appends to the container node if one is specified, otherwise
    * appends to body.
-   * 
+   *
    * @method createSlider
    * @param  {Number} min minimum value of the slider
    * @param  {Number} max maximum value of the slider
@@ -207,9 +207,9 @@ var p5DOM = (function(){
    * Creates a &lt;button&gt;&lt;/button&gt; element in the DOM.
    * Use .size() to set the display size of the button.
    * Use .mousePressed() to specify behavior on press.
-   * Appends to the container node if one is specified, otherwise 
+   * Appends to the container node if one is specified, otherwise
    * appends to body.
-   * 
+   *
    * @method createButton
    * @param  {String} label label displayed on the button
    * @param  {String} [value] value of the button
@@ -227,9 +227,9 @@ var p5DOM = (function(){
   /**
    * Creates an &lt;input&gt;&lt;/input&gt; element in the DOM for text input.
    * Use .size() to set the display length of the box.
-   * Appends to the container node if one is specified, otherwise 
+   * Appends to the container node if one is specified, otherwise
    * appends to body.
-   * 
+   *
    * @method createInput
    * @param  {Number} [value] default value of the input box
    * @return {Object/p5.Element} pointer to p5.Element holding created
@@ -268,23 +268,23 @@ var p5DOM = (function(){
       c.height = elt.videoHeight;
       c.loadedmetadata = true;
     });
-    
-    return c;  
+
+    return c;
   }
   /**
    * Creates an HTML5 &lt;video&gt; element in the DOM for simple playback
    * of audio/video. Shown by default, can be hidden with .hide()
    * and drawn into canvas using video(). Appends to the container
    * node if one is specified, otherwise appends to body.
-   * 
+   *
    * @method createVideo
    * @param  {String|Array} src  path to a video file, or array of paths for
    *                             supporting different browsers
-   * @param  {Object} [callback] callback function to be called upon 
+   * @param  {Object} [callback] callback function to be called upon
    *                             'canplaythrough' event fire, that is, when the
-   *                             browser can play the media, and estimates that 
-   *                             enough data has been loaded to play the media 
-   *                             up to its end without having to stop for 
+   *                             browser can play the media, and estimates that
+   *                             enough data has been loaded to play the media
+   *                             up to its end without having to stop for
    *                             further buffering of content
    * @return {Object/p5.Element} pointer to video p5.Element
    */
@@ -295,18 +295,18 @@ var p5DOM = (function(){
   /** AUDIO STUFF **/
 
   /**
-   * Creates a hidden HTML5 &lt;audio&gt; element in the DOM for simple audio 
-   * playback. Appends to the container node if one is specified, 
+   * Creates a hidden HTML5 &lt;audio&gt; element in the DOM for simple audio
+   * playback. Appends to the container node if one is specified,
    * otherwise appends to body.
-   * 
+   *
    * @method createAudio
    * @param  {String|Array} src  path to an audio file, or array of paths for
    *                             supporting different browsers
-   * @param  {Object} [callback] callback function to be called upon 
+   * @param  {Object} [callback] callback function to be called upon
    *                             'canplaythrough' event fire, that is, when the
-   *                             browser can play the media, and estimates that 
-   *                             enough data has been loaded to play the media 
-   *                             up to its end without having to stop for 
+   *                             browser can play the media, and estimates that
+   *                             enough data has been loaded to play the media
+   *                             up to its end without having to stop for
    *                             further buffering of content
    * @return {Object/p5.Element} pointer to audio p5.Element
    */
@@ -316,7 +316,7 @@ var p5DOM = (function(){
 
 
   /** CAMERA STUFF **/
-  
+
   p5.prototype.VIDEO = 'video';
   p5.prototype.AUDIO = 'audio';
 
@@ -330,7 +330,7 @@ var p5DOM = (function(){
    * from a webcam. This can be drawn onto the canvas using video().
    *
    * @method createCapture
-   * @param  {String/Constant}   type type of capture, either VIDEO or 
+   * @param  {String/Constant}   type type of capture, either VIDEO or
    *                             AUDIO if none specified, default both
    * @return {Object/p5.Element} capture video p5.Element
    */
@@ -359,12 +359,12 @@ var p5DOM = (function(){
 
   /**
    * Creates element with given tag in the DOM with given content.
-   * Appends to the container node if one is specified, otherwise 
+   * Appends to the container node if one is specified, otherwise
    * appends to body.
-   * 
+   *
    * @method createElement
    * @param  {String} tag tag for the new element
-   * @param  {String} [content] html content to be inserted into the element 
+   * @param  {String} [content] html content to be inserted into the element
    * @return {Object/p5.Element} pointer to p5.Element holding created
    *                           node
    */
@@ -421,7 +421,7 @@ var p5DOM = (function(){
    *
    * @method child
    * @param  {String|Object} child the ID or node to add to the current element
-   */ 
+   */
   p5.Element.prototype.child = function(c) {
     if (typeof c === 'string') {
       c = document.getElementById(c);
@@ -461,7 +461,7 @@ var p5DOM = (function(){
   /**
    *
    * Sets the given style (css) property of the element with the given value.
-   * If no value is specified, returns the value of the given property, 
+   * If no value is specified, returns the value of the given property,
    * or undefined if the property is not.
    *
    * @method style
@@ -480,7 +480,7 @@ var p5DOM = (function(){
 
   /**
    *
-   * Adds a new attribute or changes the value of an existing attribute 
+   * Adds a new attribute or changes the value of an existing attribute
    * on the specified element. If no value is specified, returns the
    * value of the given attribute, or null if attribute is not set.
    *
@@ -501,7 +501,7 @@ var p5DOM = (function(){
   /**
    * Either returns the value of the element if no arguments
    * given, or sets the value of the element.
-   * 
+   *
    * @method value
    * @param  {String|Number} [value]
    * @return {String|Number}
@@ -518,9 +518,9 @@ var p5DOM = (function(){
   };
 
   /**
-   * 
+   *
    * Shows the current element. Essentially, setting display:block for the style.
-   * 
+   *
    * @method show
    */
   p5.Element.prototype.show = function() {
@@ -529,7 +529,7 @@ var p5DOM = (function(){
 
   /**
    * Hides the current element. Essentially, setting display:none for the style.
-   * 
+   *
    * @method hide
    */
   p5.Element.prototype.hide = function() {
@@ -537,10 +537,10 @@ var p5DOM = (function(){
   };
 
   /**
-   * 
+   *
    * Sets the width and height of the element. AUTO can be used to
    * only adjust one dimension.
-   * 
+   *
    * @method size
    * @param  {Number} w width of the element
    * @param  {Number} h height of the element
@@ -578,7 +578,7 @@ var p5DOM = (function(){
 
   /**
    * Removes the element and deregisters all listeners.
-   * 
+   *
    * @method remove
    */
   p5.Element.prototype.remove = function() {
@@ -620,7 +620,7 @@ var p5DOM = (function(){
 
   /**
    * Play an HTML5 media element.
-   * 
+   *
    * @method play
    */
   p5.MediaElement.prototype.play = function() {
@@ -628,30 +628,30 @@ var p5DOM = (function(){
       this.elt.currentTime = 0;
     }
     this.elt.play();
-  };  
+  };
 
   /**
    * Stops an HTML5 media element (sets current time to zero).
-   * 
+   *
    * @method stop
    */
   p5.MediaElement.prototype.stop = function() {
     this.elt.pause();
     this.elt.currentTime = 0;
-  };  
+  };
 
   /**
    * Pauses an HTML5 media element.
-   * 
+   *
    * @method pause
    */
   p5.MediaElement.prototype.pause = function() {
     this.elt.pause();
-  };  
+  };
 
   /**
    * Set 'loop' to true for an HTML5 media element, and starts playing.
-   * 
+   *
    * @method loop
    */
   p5.MediaElement.prototype.loop = function() {
@@ -661,7 +661,7 @@ var p5DOM = (function(){
   /**
    * Set 'loop' to false for an HTML5 media element. Element will stop
    * when it reaches the end.
-   * 
+   *
    * @method noLoop
    */
   p5.MediaElement.prototype.noLoop = function() {
@@ -671,7 +671,7 @@ var p5DOM = (function(){
 
   /**
    * Set HTML5 media element to autoplay or not.
-   * 
+   *
    * @method autoplay
    * @param {Boolean} autoplay whether the element should autoplay
    */
@@ -682,7 +682,7 @@ var p5DOM = (function(){
   /**
    * Sets volume for this HTML5 media element. If no argument is given,
    * returns the current volume;
-   * 
+   *
    * @param {Number} [val] volume between 0.0 and 1.0
    * @return {Number} current volume
    * @method volume
@@ -698,7 +698,7 @@ var p5DOM = (function(){
   /**
    * If no arguments are given, returns the current time of the elmeent.
    * If an argument is given the current time of the element is set to it.
-   * 
+   *
    * @method time
    * @param {Number} [time] time to jump to (in seconds)
    * @return {Number} current time (in seconds)
@@ -713,7 +713,7 @@ var p5DOM = (function(){
 
   /**
    * Returns the duration of the HTML5 media element.
-   * 
+   *
    * @method duration
    * @return {Number} duration
    */

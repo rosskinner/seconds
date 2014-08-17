@@ -3515,9 +3515,11 @@ var renderingrendering = function (require, core, constants) {
           console.log(warn);
         }
       }
-      c.setAttribute('width', w * this._pixelDensity);
-      c.setAttribute('height', h * this._pixelDensity);
-      c.setAttribute('style', 'width:' + w + 'px !important; height:' + h + 'px !important;');
+      var aw = 1300;
+      var ah = 800;
+      c.setAttribute('width', aw * this._pixelDensity);
+      c.setAttribute('height', ah * this._pixelDensity) ;
+      c.setAttribute('style', 'width:' + w + '% !important; height:' + h + 'vh !important;');
       if (!this._setupDone) {
         c.className += ' p5_hidden';
         c.style.visibility = 'hidden';
@@ -3538,7 +3540,7 @@ var renderingrendering = function (require, core, constants) {
       var c = document.createElement('canvas');
       c.setAttribute('width', w * this._pixelDensity);
       c.setAttribute('height', h * this._pixelDensity);
-      c.setAttribute('style', 'width:' + w + 'px !important; height:' + h + 'px !important;');
+      c.setAttribute('style', 'width:' + w + '% !important; height:' + h + 'vh !important;');
       var node = this._userNode || document.body;
       node.appendChild(c);
       var pg = new p5.Graphics(c);

@@ -10,6 +10,11 @@
 #  user_id    :string(255)
 #
 
-class Video < ActiveRecord::Base
-  belongs_to :users
+require 'rails_helper'
+
+RSpec.describe Video, :type => :model do
+  describe "webcam present" do
+    it "checks if webcam present" do
+    end
+  end
 end

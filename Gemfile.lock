@@ -152,6 +152,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.0)
   jquery-rails
+  minitest
   modernizr-rails
   pg
   rails (= 4.1.4)
