@@ -2,6 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight:100;
+}
+
+button {
+  font-family: inherit;
+  font-weight: 100;
+  padding:10px;
+  background-color: #3C5394;
+  border:none;
+  border-bottom: 4px solid #12182B;
+  color:#FFF;
+}
 
 .grid-video {
   width:100%;
