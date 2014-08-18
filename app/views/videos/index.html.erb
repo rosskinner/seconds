@@ -1,6 +1,21 @@
 <h1> SECONDS </h1>
 <!--///// video grid //////-->
 
+<div>
+    <label for="time-interval">Time Interval (milliseconds):</label>
+    <input type="text" id="time-interval" value="5000">
+
+    <label for="video-width">Video Width:</label>
+    <input type="text" id="video-width" value="320">
+
+    <label for="video-height">Video Height:</label>
+    <input type="text" id="video-height" value="240">
+
+    <button id="start-recording">Start Recording</button>
+    <button id="stop-recording" disabled>Stop Recording</button>
+</div>
+<div id="videos-container"></div>
+
 <script id="videos-template" type="text/handlebars-template">
   <div class="videos">
   {{ video }}

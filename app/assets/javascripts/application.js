@@ -12,10 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require_tree ./MediaStreamRecorder
 //= require ./app/underscore.js
 //= require ./app/backbone.js
 //= require p5.js
 //= require p5.dom.js
+//= require videos.js
 //= require_tree ./app/models
 //= require_tree ./app/collections
 //= require_tree .
