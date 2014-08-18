@@ -12,10 +12,4 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require underscore
-//= require backbone
-//= require ./dom
-//= require ./dom/p5.js
-//= require_tree ./app/models
-//= require_tree ./app/collections
 //= require_tree .

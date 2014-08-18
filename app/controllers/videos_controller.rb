@@ -76,6 +76,6 @@ class VideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
-      params.require(:video).permit(:title, :video)
+      params.require(:video).permit(:title, :video, :video_cache)
     end
 end

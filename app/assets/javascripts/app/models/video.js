@@ -1,7 +1,7 @@
 var app = app || {};
 
 app.Video = Backbone.Model.extend({
-  urlRoot: '/videos',
+  urlRoot: 'videos',
   defaults: {
     title: 'seconds',
     video: 'some_url'

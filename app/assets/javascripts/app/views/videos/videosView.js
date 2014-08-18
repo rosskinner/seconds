@@ -1,8 +1,12 @@
 var app = app || {};
 
 app.VideosView = Backbone.View.extend({
-  el: '.videos',
+  el: '.grid-video',
   initialize: function() {
+    this.render();
+    console.log("rendering to page");
+  },
+  render: function () {
     var video_list = Handlebars.compile(app.templates.videosTemplate);
     var view = this;
     this.collection.each(function(videos) {

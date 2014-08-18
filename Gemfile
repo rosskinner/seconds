@@ -29,6 +29,9 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'modernizr-rails'
 gem 'underscore-rails'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'cloudinary'
 gem 'rails_12factor', group: :production
 
 

@@ -1,12 +1,10 @@
 <h1> SECONDS </h1>
-<div class="grid-video">
-  <%  @videos.each do |video|%>
-    <div class="test-video"> <%= video.title %></div>
-  <% end %>
-</div>
 <!--///// video grid //////-->
+<%= link_to(image_tag(video.video_url(:video)),video) %>
 <script id="videos-template" type="text/handlebars-template">
-  <video class="videos" src="{{ video }}" >
-  </video>
+  <div class="videos">
+  {{ video }}
+  {{ title }}
+  </div>
 </script>
 

@@ -2,7 +2,7 @@ var app = app || {};
 
 app.Router = Backbone.Router.extend({
   routes: {
-    '' : 'videos'
+    '' : 'index'
   },
   index: function() {
     app.videos = new app.Videos();
