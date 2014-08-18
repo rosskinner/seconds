@@ -29,6 +29,7 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'modernizr-rails'
 gem 'underscore-rails'
+gem 'rails_12factor'
 
 
 group :development, :test do
