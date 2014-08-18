@@ -38,6 +38,11 @@ button {
   border: 0.1em solid #3E6372;
 }
 
+video {
+  filter: grayscale(100%) contrast(150%) brightness(100%);
+  -webkit-filter: grayscale(100%) contrast(150%) brightness(100%);
+  -moz-filter: grayscale(100%) contrast(150%) brightness(100%);
+}
 
 #videos-container {
 
