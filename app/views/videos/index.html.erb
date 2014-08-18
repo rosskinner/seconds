@@ -1,5 +1,6 @@
 <h1> SECONDS </h1>
-
-<%  @videos.each do |video|%>
-  <%= video.title %>
-<% end %>
+<div class="grid-video">
+  <%  @videos.each do |video|%>
+    <div class="test-video"> <%= video.title %></div>
+  <% end %>
+</div>

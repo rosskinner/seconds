@@ -35,6 +35,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'minitest'
   gem 'simplecov'
+  gem 'faker'
+  gem 'factory_girl_rails'
 end
 
 # Use ActiveModel has_secure_password

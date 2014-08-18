@@ -4,6 +4,7 @@ class VideosController < ApplicationController
   # GET /videos
   # GET /videos.json
   def index
+    @videos = Video.pluck 'title'
     @videos = Video.order('created_at DESC')
     respond_to do |format|
       format.html{}
