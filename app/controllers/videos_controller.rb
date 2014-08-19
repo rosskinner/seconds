@@ -17,7 +17,7 @@ class VideosController < ApplicationController
   # GET /videos/1.json
   def show
     @videos = Video.all
-    @video = @videos.find_by [:id]
+    @video = @videos.find params[:id]
   end
 
   # GET /videos/new
@@ -32,8 +32,19 @@ class VideosController < ApplicationController
   # POST /videos
   # POST /videos.json
   def create
-    binding.pry
+
     @video = Video.new(video_params)
+    file = @video.video.tempfile
+    binding.pry
+    video = Panda::Video.create(:file => file)
+
+    if video.reload.status == 'success'
+      video.encodings['h264'].reload
+      video.encodings['h264'].encoding_progress
+      if video.encodings['h264'].status == 'success'
+        @video.video = video.encodings['h264'].url
+      end
+    end
 
     respond_to do |format|
       if @video.save

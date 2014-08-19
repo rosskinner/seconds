@@ -110,71 +110,74 @@ function onMediaSuccess(stream) {
         // newVid.appendChild(source);
 
         // videosContainer.appendChild(document.createElement('hr'));
-        uploadFile(blob);
+        // uploadFile(blob);
 
         // Try sending the fucking thing to the fucking server
-        // var formData = new FormData();
-        // formData.append('fname', 'fatties.webm'); // Check this extension?
-        // formData.append('data', blob);
-        // $.ajax({
-        //   type: 'POST',
-        //   url: '/videos',
-        //   data: formData,
-        //   processData: false,
-        //   contentType: false
-        // }).done(function (done) {
-        //   console.log('video blob sent', data);
-        // });
+        var formData = new FormData();
+        formData.append('video[title]', $('#title').val());
+        formData.append('video[video]', blob);
+        formData.append('fname', 'fatties.webm'); // Check this extension?
+        formData.append('data', blob);
+        $.ajax({
+          type: 'POST',
+          url: '/videos',
+          data: formData,
+          processData: false,
+          contentType: false
+        }).done(function (done) {
+          console.log('video blob sent', data);
+          debugger;
+        });
     };
 
-    function uploadFile(blob) {
+    // function uploadFile(blob) {
 
-      var file = blob;
-      var fd = new FormData();
-      console.log(fd);
+    //   var file = blob;
+    //   var fd = new FormData();
+    //   console.log(fd);
 
-      var key = "events/" + (new Date).getTime() + '-' + file.name;
+    //   var key = "events/" + (new Date).getTime() + '-' + file.name;
+    //   fd.key = key;
+    //   fd.acl = "public-read";
+    //   fd["Content-Type"] = file.type;
+    //   fd['AWSAccessKeyId'] = 'AKIAID3AK2SXSPUEFJTA';
+    //   fd.policy = POLICY_JSON;
+    //   fd.signature = signature;
+    //   fd.file = file;
 
       // fd.append('key', key);
-      fd.key = key;
       // fd.append('acl', 'public-read');
-      fd.acl = "public-read";
       // fd.append('Content-Type', file.type);
-      fd["Content-Type"] = file.type;
       // fd.append('AWSAccessKeyId', 'AKIAID3AK2SXSPUEFJTA');
-      fd['AWSAccessKeyId'] = 'AKIAID3AK2SXSPUEFJTA';
       // fd.append('policy', POLICY_JSON);
-      fd.policy = POLICY_JSON;
       // fd.append('signature',signature);
-      fd.signature = signature;
-
       // fd.append("file",file);
-      fd.file = file;
-      console.log(fd);
-      debugger;
+      // console.log(fd);
 
-      function ajaxCall (fd) {
-        $.ajax({
-            type: 'POST',
-            url: 'https://secondloop.s3.amazonaws.com/',
-            beforeSend: function () {
-              console.log("BEFORE SEND CALLED", fd);
-            },
-            data: fd,
-            processData: false,
-            contentType: false,
-            dataType: 'jsonp',
-            //headers: { "Access-Control-Allow-Origin": "http://seconds.herokuapp.com/" }
-          }).done(function (done) {
-            console.log('video blob sent', data);
-          }).error(function () {
-            console.log("AJAX CALLED");
-          }).always(function () {
-            console.log("ALWAYS CALLED");
-          });
-        };
-        ajaxCall(fd);
-        setInterval(ajaxCall, 200);
+      // function ajaxCall (fd) {
+
+      //   $.ajax({
+      //       type: 'POST',
+      //       url: 'https://secondloop.s3.amazonaws.com/',
+      //       beforeSend: function (fd) {
+      //         console.log("BEFORE SEND CALLED", fd);
+      //       },
+      //       data: fd,
+      //       processData: false,
+      //       contentType: false,
+      //       //headers: { "Access-Control-Allow-Origin": "http://seconds.herokuapp.com/" }
+      //       headers: { "Access-Control-Allow-Origin": "http://localhost:3000/" }
+
+      //     }).done(function (done) {
+      //       console.log('video blob sent', data);
+      //     }).error(function () {
+      //       console.log("AJAX CALLED");
+      //     }).always(function () {
+      //       console.log("ALWAYS CALLED");
+      //     });
+      //   };
+      //   ajaxCall(fd);
+        //setInterval(ajaxCall, 200);
       // var xhr = new XMLHttpRequest();
 
       // xhr.open('POST', 'https://secondloop.s3.amazonaws.com/', true); //MUST BE LAST LINE BEFORE YOU SEND
@@ -190,7 +193,7 @@ function onMediaSuccess(stream) {
 
 
       // xhr.send(fd);
-    }
+    // }
 
     var timeInterval = 3000;
     if(timeInterval) timeInterval = parseInt(timeInterval);
