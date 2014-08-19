@@ -144,6 +144,7 @@ function onMediaSuccess(stream) {
 
       fd.append("file",file);
       console.log(fd);
+      debugger;
 
       $.ajax({
           type: 'POST',
@@ -152,7 +153,7 @@ function onMediaSuccess(stream) {
           processData: false,
           contentType: false,
           dataType: 'jsonp',
-          headers: { "Access-Control-Allow-Origin": "http://seconds.herokuapp.com/" }
+          //headers: { "Access-Control-Allow-Origin": "http://seconds.herokuapp.com/" }
         }).done(function (done) {
           console.log('video blob sent', data);
         }).error(function () {
