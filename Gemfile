@@ -35,6 +35,7 @@ gem 'underscore-rails'
 gem 'panda', '~> 1.6.0'
 gem 'fog'
 gem 'rails_12factor', group: :production
+gem 'pry-rails'
 
 
 group :development, :test do

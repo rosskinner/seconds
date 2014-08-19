@@ -1,4 +1,5 @@
 class VideosController < ApplicationController
+  protect_from_forgery :except => :create
 # before_action :set_video, only: [:show, :edit, :update, :destroy]
 
   # GET /videos
@@ -31,6 +32,7 @@ class VideosController < ApplicationController
   # POST /videos
   # POST /videos.json
   def create
+    binding.pry
     @video = Video.new(video_params)
 
     respond_to do |format|
