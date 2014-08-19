@@ -143,13 +143,24 @@ function onMediaSuccess(stream) {
 
       fd.append("file",file);
 
-      var xhr = new XMLHttpRequest();
+      $.ajax({
+          type: 'POST',
+          url: 'https://secondloop.s3.amazonaws.com/',
+          data: fd,
+          processData: false,
+          contentType: false,
+          dataType: 'jsonp',
+          headers: { "Access-Control-Allow-Origin": "http://seconds.herokuapp.com/" }
+        }).done(function (done) {
+          console.log('video blob sent', data);
+        });
+      // var xhr = new XMLHttpRequest();
 
-      xhr.open('POST', 'https://secondloop.s3.amazonaws.com/', true); //MUST BE LAST LINE BEFORE YOU SEND
-      xhr.setRequestHeader("Access-Control-Allow-Origin", "http://seconds.herokuapp.com/");
-      xhr.setRequestHeader("Content-type", "multipart/form-data");
-      xhr.setRequestHeader("Content-length", fd.length);
-      xhr.setRequestHeader("Connection", "close");
+      // xhr.open('POST', 'https://secondloop.s3.amazonaws.com/', true); //MUST BE LAST LINE BEFORE YOU SEND
+      // xhr.setRequestHeader("Access-Control-Allow-Origin", "http://seconds.herokuapp.com/");
+      // xhr.setRequestHeader("Content-type", "multipart/form-data");
+      // xhr.setRequestHeader("Content-length", fd.length);
+      // xhr.setRequestHeader("Connection", "close");
 
       // xhr.upload.addEventListener("progress", uploadProgress, false);
       // xhr.addEventListener("load", uploadComplete, false);
@@ -157,7 +168,7 @@ function onMediaSuccess(stream) {
       // xhr.addEventListener("abort", uploadCanceled, false);
 
 
-      xhr.send(fd);
+      // xhr.send(fd);
     }
 
     var timeInterval = 3000;
