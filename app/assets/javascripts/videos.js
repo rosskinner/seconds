@@ -1,55 +1,142 @@
-// Video
-// var video;
-
-// // Drawing context
-// // Temporary as eventually p5 may support drawing video into canvas directly?
-// var context;
-
-// function setup() {
-//   // Make an invisible video DOM element
-// // video = createHTML$('<video id=\'vid\'></video>');
-
-// video = document.createElement('video');
-// video.id = 'vid';
-// video = document.getElementById('vid');
-// video.setAttribute('autoplay',true);
-// video.style.display = 'none';
-
-// // For cross-browser support
-// navigator.getUserMedia  = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
-
-// // Get a stream of video from the user
-// navigator.getUserMedia(
-//   // First argument is an object that tells us if we want audio and/or video
-//   { video: true, audio: false },
-//   // Second argument is a function that assigns a 'stream' to the video's source
-//   function(stream) {
-//     video.src = window.URL.createObjectURL(stream);
-//   },
-//   // Third argument is the callback if the user rejected
-//   rejected
-// );
-
-// var rejected = function(e) {
-//   // The user rejected capturing
-//   // We could handle this however we want
-//   console.log('User said no!', e);
-// };
-
-//   var canvas = createCanvas(640, 360);
-//   // need to keep track of the context to draw the video
-//   context = canvas.elt.getContext('2d');
-// };
-
-// function draw() {
-//   background(51);
-//   // Draw video into canvas
-//   context.drawImage(video,0,0,width,height);
-// };
-
+$(document).ready(function (){
 //////////////////////////////////////////////
 //////////////////////////////////////////////
 ////// ---- Media Stream Recording ---- //////
 //////////////////////////////////////////////
 //////////////////////////////////////////////
+
+var mediaConstraints = { audio: !!navigator.mozGetUserMedia, video: true };
+
+//initializing the camera
+navigator.getUserMedia(mediaConstraints, onMedia, onMediaError)
+
+var videoWidth = 200;
+var videoHeight = 140;
+function onMedia(stream) {
+  console.log('camera comes up on load');
+  var video = document.createElement('video');
+  video.setAttribute('id', 'livefeed');
+  videoWidth = 200;
+  videoHeight = 140;
+
+  video = mergeProps(video, {
+      controls: false,
+      width: videoWidth,
+      height: videoHeight,
+      src: URL.createObjectURL(stream)
+  });
+  video.play();
+
+  videosContainer.appendChild(video);
+
+};
+
+// $('#livefeed').onclick(function() {
+//   this.disabled = false;
+//     navigator.getUserMedia(mediaConstraints, onMediaSuccess, onMediaError);
+// });
+
+// document.querySelector('#livefeed').onclick = function() {
+//     this.disabled = true;
+//     navigator.getUserMedia(mediaConstraints, onMediaSuccess, onMediaError);
+// };
+
+document.querySelector('#stop-recording').onclick = function() {
+    this.disabled = true;
+    mediaRecorder.stop();
+};
+
+var mediaRecorder;
+
+
+function onMediaSuccess(stream) {
+  console.log('media success');
+    mediaRecorder = new MediaStreamRecorder(stream);
+    mediaRecorder.mimeType = 'video/webm'; // this line is mandatory
+    mediaRecorder.videoWidth  = videoWidth;
+    mediaRecorder.videoHeight = videoHeight;
+
+    var title = document.getElementById('title').value
+
+    mediaRecorder.ondataavailable = function(blob) {
+      // var a = document.createElement('a');
+      // a.target = '_blank';
+      // a.innerHTML = title + ' (Size: ' + bytesToSize(blob.size) + ') Time Length: ' + getTimeLength(timeInterval);
+
+      // a.href = URL.createObjectURL(blob);
+
+      // videosContainer.appendChild(a);
+
+      var newVid = document.createElement('video');
+      newVid = mergeProps(newVid, {
+        autoplay: true,
+        loop: true,
+        controls: false,
+        width: videoWidth,
+        height: videoHeight,
+        src: URL.createObjectURL(blob)
+      });
+
+      videosContainer.appendChild(newVid);
+
+      var formData = new FormData();
+      formData.append('video[title]', $('#title').val());
+      formData.append('video[video]', blob);
+      formData.append('fname', 'seconds.webm'); // Check this extension?
+      formData.append('data', blob);
+      $.ajax({
+        type: 'POST',
+        url: '/videos',
+        data: formData,
+        processData: false,
+        contentType: false
+      }).done(function (data) {
+        console.log('video blob sent', data);
+
+      });
+
+    };
+
+    var timeInterval = 3000;
+    if(timeInterval) timeInterval = parseInt(timeInterval);
+    else timeInterval = 5 * 1000;
+
+    // get blob after specific time interval
+    mediaRecorder.start(timeInterval);
+
+
+    document.querySelector('#stop-recording').disabled = false;
+
+}
+
+function onMediaError(e) {
+    console.error('media error', e);
+}
+
+var videosContainer = document.getElementById('videos-container');
+var index = 1;
+
+// below function via: http://goo.gl/B3ae8c
+function bytesToSize(bytes) {
+   var k = 1000;
+   var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+   if (bytes === 0) return '0 Bytes';
+   var i = parseInt(Math.floor(Math.log(bytes) / Math.log(k)),10);
+   return (bytes / Math.pow(k, i)).toPrecision(3) + ' ' + sizes[i];
+}
+
+// below function via: http://goo.gl/6QNDcI
+function getTimeLength(milliseconds) {
+    var data = new Date(milliseconds);
+    return data.getUTCHours()+" hours, "+data.getUTCMinutes()+" minutes and "+data.getUTCSeconds()+" second(s)";
+}
+
+window.onbeforeunload = function() {
+    document.querySelector('#start-recording').disabled = false;
+};
+
+
+});
+
+
 

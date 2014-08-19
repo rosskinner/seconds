@@ -25,32 +25,22 @@ class VideosController < ApplicationController
     @video = Video.new
   end
 
-  # GET /videos/1/edit
-  def edit
-  end
-
   # POST /videos
   # POST /videos.json
   def create
 
     @video = Video.new(video_params)
     file = @video.video.tempfile
-    # file = T
-
 
     video = Panda::Video.create(:file => file)
+    video.encodings['h264'].reload
 
+    until video.encodings['h264'].status == 'success'
       video.encodings['h264'].reload
-      # sleep 30
-      until video.encodings['h264'].status == 'success'
-        video.encodings['h264'].reload
-      end
+    end
 
-      video.encodings['h264'].encoding_progress
-      @video.video = video.encodings['h264'].url
-
-
-    # binding.pry
+    video.encodings['h264'].encoding_progress
+    @video.video = video.encodings['h264'].url
 
     respond_to do |format|
       if @video.save
@@ -65,17 +55,17 @@ class VideosController < ApplicationController
 
   # PATCH/PUT /videos/1
   # PATCH/PUT /videos/1.json
-  def update
-    respond_to do |format|
-      if @video.update(post_params)
-        format.html { redirect_to @video, notice: 'video was successfully updated.' }
-        format.json { render :show, status: :ok, location: @video }
-      else
-        format.html { render :edit }
-        format.json { render json: @video.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # def update
+  #   respond_to do |format|
+  #     if @video.update(post_params)
+  #       format.html { redirect_to @video, notice: 'video was successfully updated.' }
+  #       format.json { render :show, status: :ok, location: @video }
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @video.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
   # Rosalind is gay because peter is cool and she is funny looking and if she deletes this then NAOUUU!!!11!!!!1!1!11 ur hed is munted m8e
   # DELETE /videos/1
   # DELETE /videos/1.json
