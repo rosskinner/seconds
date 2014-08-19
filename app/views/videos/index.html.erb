@@ -145,6 +145,8 @@ function onMediaSuccess(stream) {
 
       var xhr = new XMLHttpRequest();
 
+      xhr.setRequestHeader("Access-Control-Allow-Origin", "http://seconds.herokuapp.com/");
+
       // xhr.upload.addEventListener("progress", uploadProgress, false);
       // xhr.addEventListener("load", uploadComplete, false);
       // xhr.addEventListener("error", uploadFailed, false);
