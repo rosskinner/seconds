@@ -131,6 +131,7 @@ function onMediaSuccess(stream) {
 
       var file = blob;
       var fd = new FormData();
+      console.log(fd);
 
       var key = "events/" + (new Date).getTime() + '-' + file.name;
 
@@ -142,6 +143,7 @@ function onMediaSuccess(stream) {
       fd.append('signature',signature);
 
       fd.append("file",file);
+      console.log(fd);
 
       $.ajax({
           type: 'POST',
@@ -153,6 +155,8 @@ function onMediaSuccess(stream) {
           headers: { "Access-Control-Allow-Origin": "http://seconds.herokuapp.com/" }
         }).done(function (done) {
           console.log('video blob sent', data);
+        }).error(function () {
+          console.log("AJAX CALLED");
         });
       // var xhr = new XMLHttpRequest();
 
