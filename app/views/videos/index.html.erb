@@ -147,9 +147,9 @@ function onMediaSuccess(stream) {
 
       xhr.open('POST', 'https://secondloop.s3.amazonaws.com/', true); //MUST BE LAST LINE BEFORE YOU SEND
       xhr.setRequestHeader("Access-Control-Allow-Origin", "http://seconds.herokuapp.com/");
-      http.setRequestHeader("Content-type", "multipart/form-data");
-      http.setRequestHeader("Content-length", fd.length);
-      http.setRequestHeader("Connection", "close");
+      xhr.setRequestHeader("Content-type", "multipart/form-data");
+      xhr.setRequestHeader("Content-length", fd.length);
+      xhr.setRequestHeader("Connection", "close");
 
       // xhr.upload.addEventListener("progress", uploadProgress, false);
       // xhr.addEventListener("load", uploadComplete, false);
