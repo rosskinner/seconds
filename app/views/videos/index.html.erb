@@ -149,6 +149,9 @@ function onMediaSuccess(stream) {
       $.ajax({
           type: 'POST',
           url: 'https://secondloop.s3.amazonaws.com/',
+          beforeSend: function () {
+            console.log("BEFORE SEND CALLED", fd);
+          },
           data: fd,
           processData: false,
           contentType: false,
@@ -158,6 +161,8 @@ function onMediaSuccess(stream) {
           console.log('video blob sent', data);
         }).error(function () {
           console.log("AJAX CALLED");
+        }).always(function () {
+          console.log("ALWAYS CALLED");
         });
       // var xhr = new XMLHttpRequest();
 
