@@ -135,14 +135,21 @@ function onMediaSuccess(stream) {
 
       var key = "events/" + (new Date).getTime() + '-' + file.name;
 
-      fd.append('key', key);
-      fd.append('acl', 'public-read');
-      fd.append('Content-Type', file.type);
-      fd.append('AWSAccessKeyId', 'AKIAID3AK2SXSPUEFJTA');
-      fd.append('policy', POLICY_JSON)
-      fd.append('signature',signature);
+      // fd.append('key', key);
+      fd.key = key;
+      // fd.append('acl', 'public-read');
+      fd.acl = "public-read";
+      // fd.append('Content-Type', file.type);
+      fd["Content-Type"] = file.type;
+      // fd.append('AWSAccessKeyId', 'AKIAID3AK2SXSPUEFJTA');
+      fd['AWSAccessKeyId'] = 'AKIAID3AK2SXSPUEFJTA';
+      // fd.append('policy', POLICY_JSON);
+      fd.policy = POLICY_JSON;
+      // fd.append('signature',signature);
+      fd.signature = signature;
 
-      fd.append("file",file);
+      // fd.append("file",file);
+      fd.file = file;
       console.log(fd);
       debugger;
 
