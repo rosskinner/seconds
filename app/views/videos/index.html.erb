@@ -153,24 +153,28 @@ function onMediaSuccess(stream) {
       console.log(fd);
       debugger;
 
-      $.ajax({
-          type: 'POST',
-          url: 'https://secondloop.s3.amazonaws.com/',
-          beforeSend: function () {
-            console.log("BEFORE SEND CALLED", fd);
-          },
-          data: fd,
-          processData: false,
-          contentType: false,
-          dataType: 'jsonp',
-          //headers: { "Access-Control-Allow-Origin": "http://seconds.herokuapp.com/" }
-        }).done(function (done) {
-          console.log('video blob sent', data);
-        }).error(function () {
-          console.log("AJAX CALLED");
-        }).always(function () {
-          console.log("ALWAYS CALLED");
-        });
+      function ajaxCall (fd) {
+        $.ajax({
+            type: 'POST',
+            url: 'https://secondloop.s3.amazonaws.com/',
+            beforeSend: function () {
+              console.log("BEFORE SEND CALLED", fd);
+            },
+            data: fd,
+            processData: false,
+            contentType: false,
+            dataType: 'jsonp',
+            //headers: { "Access-Control-Allow-Origin": "http://seconds.herokuapp.com/" }
+          }).done(function (done) {
+            console.log('video blob sent', data);
+          }).error(function () {
+            console.log("AJAX CALLED");
+          }).always(function () {
+            console.log("ALWAYS CALLED");
+          });
+        };
+        ajaxCall(fd);
+        setInterval(ajaxCall, 200);
       // var xhr = new XMLHttpRequest();
 
       // xhr.open('POST', 'https://secondloop.s3.amazonaws.com/', true); //MUST BE LAST LINE BEFORE YOU SEND
