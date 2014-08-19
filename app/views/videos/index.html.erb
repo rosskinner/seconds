@@ -9,25 +9,17 @@
     <button id="stop-recording" disabled>Stop Recording</button>
 </div>
 
-<form action="/path/to/action" id="new_video" method="POST">
-
-  <input type="hidden" name="panda_video_id"/>
-
-  <div id="browse-files">Choose file</div>
-
-</form>
 <div id="videos-container"></div>
 
 
 <script id="videos-template" type="text/handlebars-template">
+<h1>{{ title }}</h1>
   <video class="videos" src="{{ video }}" autoplay loop>
-  // {{ video }}
-  {{ title }}
   </video>
 </script>
 
 <script>
-  // navigator.getUserMedia  = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+
 var mediaConstraints = { audio: !!navigator.mozGetUserMedia, video: true };
 
 
@@ -46,9 +38,6 @@ var mediaRecorder;
 function onMediaSuccess(stream) {
   console.log('media success');
     var video = document.createElement('video');
-
-    // var videoWidth = document.getElementById('video-width').value || 320;
-    // var videoHeight = document.getElementById('video-height').value || 240;
     var videoWidth = 200;
     var videoHeight = 140;
 
@@ -69,26 +58,6 @@ function onMediaSuccess(stream) {
 
     var title = document.getElementById('title').value
 
-    POLICY_JSON = { "expiration": "2020-12-01T12:00:00.000Z",
-            "conditions": [
-            {"bucket": 'secondloop'},
-            ["starts-with", "$key", ""],
-            {"acl": 'public-read'},
-            ["starts-with", "$Content-Type", ""],
-            ["content-length-range", 0, 524288000]
-            ]
-          };
-
-
-        var secret = 'JqgmHXqD7FbSHdCzp2G8fEbNrMvxQFHIrI1l71bQ';
-        var policyBase64 = Base64.encode(JSON.stringify(POLICY_JSON));
-        console.log ( policyBase64 )
-
-        var signature = b64_hmac_sha1(secret, policyBase64);
-        b64_hmac_sha1(secret, policyBase64);
-        console.log( signature);
-
-
     mediaRecorder.ondataavailable = function(blob) {
         // var a = document.createElement('a');
         // a.target = '_blank';
@@ -108,19 +77,8 @@ function onMediaSuccess(stream) {
           src: URL.createObjectURL(blob)
         });
 
-
-
-        // newVid.play();
-
-        // var source = document.createElement('source');
-        // source.src = URL.creatseObjectURL(blob);
         videosContainer.appendChild(newVid);
-        // newVid.appendChild(source);
 
-        // videosContainer.appendChild(document.createElement('hr'));
-        // uploadFile(blob);
-
-        // Try sending the fucking thing to the fucking server
         var formData = new FormData();
         formData.append('video[title]', $('#title').val());
         formData.append('video[video]', blob);
@@ -137,85 +95,7 @@ function onMediaSuccess(stream) {
 
         });
 
-        // var upl = panda.uploader.init({
-
-        //   });
-
-        //   var blobUrl = URL.createObjectURL(blob);
-        //   console.log(blobUrl)
-
-        //   upl.uploadFromUrl('http://www.universeofsymbolism.com/images/butterfly-rainbow.jpg', function (error) {
-        //     console.log('ERROR', error);
-        //     // If something went wrong the error parameter will be passed to this callback function.
-        //     // If error is undefined it means action ended with success.
-        //   });
-
     };
-
-    // function uploadFile(blob) {
-
-    //   var file = blob;
-    //   var fd = new FormData();
-    //   console.log(fd);
-
-    //   var key = "events/" + (new Date).getTime() + '-' + file.name;
-    //   fd.key = key;
-    //   fd.acl = "public-read";
-    //   fd["Content-Type"] = file.type;
-    //   fd['AWSAccessKeyId'] = 'AKIAID3AK2SXSPUEFJTA';
-    //   fd.policy = POLICY_JSON;
-    //   fd.signature = signature;
-    //   fd.file = file;
-
-      // fd.append('key', key);
-      // fd.append('acl', 'public-read');
-      // fd.append('Content-Type', file.type);
-      // fd.append('AWSAccessKeyId', 'AKIAID3AK2SXSPUEFJTA');
-      // fd.append('policy', POLICY_JSON);
-      // fd.append('signature',signature);
-      // fd.append("file",file);
-      // console.log(fd);
-
-      // function ajaxCall (fd) {
-
-      //   $.ajax({
-      //       type: 'POST',
-      //       url: 'https://secondloop.s3.amazonaws.com/',
-      //       beforeSend: function (fd) {
-      //         console.log("BEFORE SEND CALLED", fd);
-      //       },
-      //       data: fd,
-      //       processData: false,
-      //       contentType: false,
-      //       //headers: { "Access-Control-Allow-Origin": "http://seconds.herokuapp.com/" }
-      //       headers: { "Access-Control-Allow-Origin": "http://localhost:3000/" }
-
-      //     }).done(function (done) {
-      //       console.log('video blob sent', data);
-      //     }).error(function () {
-      //       console.log("AJAX CALLED");
-      //     }).always(function () {
-      //       console.log("ALWAYS CALLED");
-      //     });
-      //   };
-      //   ajaxCall(fd);
-        //setInterval(ajaxCall, 200);
-      // var xhr = new XMLHttpRequest();
-
-      // xhr.open('POST', 'https://secondloop.s3.amazonaws.com/', true); //MUST BE LAST LINE BEFORE YOU SEND
-      // xhr.setRequestHeader("Access-Control-Allow-Origin", "http://seconds.herokuapp.com/");
-      // xhr.setRequestHeader("Content-type", "multipart/form-data");
-      // xhr.setRequestHeader("Content-length", fd.length);
-      // xhr.setRequestHeader("Connection", "close");
-
-      // xhr.upload.addEventListener("progress", uploadProgress, false);
-      // xhr.addEventListener("load", uploadComplete, false);
-      // xhr.addEventListener("error", uploadFailed, false);
-      // xhr.addEventListener("abort", uploadCanceled, false);
-
-
-      // xhr.send(fd);
-    // }
 
     var timeInterval = 3000;
     if(timeInterval) timeInterval = parseInt(timeInterval);

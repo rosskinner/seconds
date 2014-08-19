@@ -26,19 +26,6 @@ body {
 
 }
 
-h1 {
-  font-family: 'Oswald', sans-serif;
-  font-size: 20em;
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  line-height: 0;
-  -webkit-transform: scale(1, 2.3);
-  position: absolute;
-  top: 1.05em;
-  z-index: 1;
-  color: #FFF;
-}
 
 
 
