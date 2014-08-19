@@ -1,0 +1,28 @@
+<%= form_for @video do |f| %>
+
+  <!-- field where the video ID will be stored after the upload -->
+  <input type="hidden" name="panda_video_id"/>
+
+  <label>Title</label>
+  <input type="text" name='video[title]' placeholder="Give a title">
+
+  <!-- optional upload progress bar -->
+  <div class='progress'><span id="progress-bar" class='bar'></span></div>
+
+  <!-- file selector -->
+  <div id="browse">Choose file</div>
+
+<% end %>
+
+<script>
+  panda.uploader.init({
+    'buttonId': 'browse',
+    'progressBarId': 'progress-bar',
+    'onSuccess': function(file, data) {
+      $("#panda_video_id").val(data.id)
+    },
+    'onComplete': function(){
+      $("#new_video").submit();
+    }
+  });
+</script>

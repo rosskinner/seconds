@@ -1,0 +1,8 @@
+<% if @h264e.status == "success" %>
+  <video id="movie" width="<%= @h264e.width %>" height="<%= @h264e.height %>" preload="none"
+    poster="<%= @h264e.screenshots.first %>" controls>
+    <source src="<%= @h264e.url %>" type="video/mp4">
+  </video>
+<% else %>
+   Your video is processing: <%= @h264e.encoding_progress.to_i %>%
+<% end %>
