@@ -1,24 +1,24 @@
 var app = app || {};
 
-app.SignInView = Backbone.View.extend({
-  el: '.sign-in',
+app.SignUpView = Backbone.View.extend({
+  el: '.sign-up',
   events: {
     'click' : 'close'
   },
   initialize: function() {
     // this.render();
-    console.log("rendering signing to page");
+    console.log("rendering sign up to page");
 
   },
   render: function () {
     this.$el.html('');
-    var signIn = Handlebars.compile(app.templates.signInTemplate);
+    var signUp = Handlebars.compile(app.templates.signUpTemplate);
     var view = this;
-    view.$el.append( signIn );
+    view.$el.append( signUp );
   },
   close: function() {
     $('.close').on('click', function(){
-      $('.sign-in').hide();
+      $('.sign-up').hide();
     });
   }
 });

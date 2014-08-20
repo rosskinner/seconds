@@ -176,7 +176,13 @@ window.onbeforeunload = function() {
     document.querySelector('#start-recording').disabled = false;
 };
 
+$('.signin-button').on('click', function() {
+  $('.sign-in').show();
+});
 
+$('.signup-button').on('click', function() {
+  $('.sign-up').show();
+});
 });
 
 

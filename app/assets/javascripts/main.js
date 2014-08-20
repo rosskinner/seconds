@@ -2,7 +2,8 @@ $(document).ready(function (){
 
   app.templates = {
     videosTemplate: $('#videos-template').html(),
-    signInTemplate: $('#signin-template').html()
+    signInTemplate: $('#signin-template').html(),
+    signUpTemplate: $('#signup-template').html()
   }
   app.router = new app.Router();
   Backbone.history.start();

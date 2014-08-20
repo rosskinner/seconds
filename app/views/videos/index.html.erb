@@ -18,13 +18,51 @@
 <div class="videos-container"><div class="grid-video"></div></div>
 
 <div class="sign-in"></div>
-
+<div class="sign-up"></div>
+<div class="signin-button">SIGN IN</div>
+<div class="signup-button">SIGN UP</div>
 <script id="videos-template" type="text/handlebars-template">
 <h1>{{ title }}</h1>
   <video class="videos" src="{{ video }}" autoplay loop>
   </video>
 </script>
 
+<script id="signin-template" type="text/handlebars-template">
 
+  <%= form_tag( new_user_session_path ) do %>
+    <div><%= label_tag :email %><br />
+    <%= email_field_tag :email, nil, autofocus: true %></div>
+
+    <div><%= label_tag :password %><br />
+      <%= password_field_tag :password, nil, autocomplete: "off" %></div>
+
+    <div><%= submit_tag 'Sign In', class: 'submit' %></div>
+  <% end %>
+
+  <%= render "users/shared/links" %>
+
+  <div class="close">CLOSE X</div>
+</script>
+
+<script id="signup-template" type="text/handlebars-template">
+  <h2>Sign up</h2>
+
+<%= form_tag( user_registration_path ) do %>
+
+  <div><%= label_tag :email %><br />
+    <%= email_field_tag :email, nil, autofocus: true %></div>
+
+    <div><%= label_tag :password %><br />
+      <%= password_field_tag :password, nil, autocomplete: "off" %></div>
+
+  <div><%= label_tag :password_confirmation %><br />
+    <%= password_field_tag :password_confirmation, autocomplete: "off" %></div>
+
+  <div><%= submit_tag 'Sign Up', class: 'submit' %></div>
+<% end %>
+
+<%= render "users/shared/links" %>
+<div class="close">CLOSE X</div>
+</script>
 
 
