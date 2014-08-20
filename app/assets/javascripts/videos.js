@@ -64,11 +64,11 @@ $('#title').keypress(function (e) {
 //   }
 // });
 
-document.querySelector('#stop-recording').onclick = function() {
-    // this.disabled = true;
-    mediaRecorder.stop();
-    console.log('stop recording')
-};
+// document.querySelector('#stop-recording').onclick = function() {
+//     // this.disabled = true;
+//     mediaRecorder.stop();
+//     console.log('stop recording')
+// };
 
 var mediaRecorder;
 
@@ -128,6 +128,7 @@ function onMediaSuccess(stream) {
         app.videos = new app.Videos();
         app.videos.fetch().done(function(){
           var videoNew = new app.VideosView({collection: app.videos});
+          window.location.replace('localhost:3000')
         });
 
       });
@@ -153,7 +154,7 @@ function onMediaError(e) {
     console.error('media error', e);
 }
 
-var videosContainer = document.getElementById('videos-container');
+var videosContainer = $('.videos-container');
 var index = 1;
 
 // below function via: http://goo.gl/B3ae8c

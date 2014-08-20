@@ -8,15 +8,23 @@
     <input type="text" id="title" placeholder="title" autofocus>
 
 
-</div>
-<button id="stop-recording" disabled>Stop Recording</button> -->
-<div id="videos-container"><div class="grid-video"></div></div>
+</div> -->
+<a href= <%=new_video_path%> id="record" >
+<ul>
+  <li> RECORD </li>
+</ul>
+</a>
+<!-- <a id="record" disabled>Stop Recording</button> -->
+<div class="videos-container"><div class="grid-video"></div></div>
 
-
+<div class="sign-in"></div>
 
 <script id="videos-template" type="text/handlebars-template">
 <h1>{{ title }}</h1>
   <video class="videos" src="{{ video }}" autoplay loop>
   </video>
 </script>
+
+
+
 
