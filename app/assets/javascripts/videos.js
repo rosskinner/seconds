@@ -1,3 +1,4 @@
+var app = app || {};
 $(document).ready(function (){
 //////////////////////////////////////////////
 //////////////////////////////////////////////
@@ -15,35 +16,58 @@ var videoHeight = 140;
 function onMedia(stream) {
   console.log('camera comes up on load');
   var video = document.createElement('video');
-  video.setAttribute('id', 'livefeed');
-  videoWidth = 200;
-  videoHeight = 140;
+  // videoWidth = 200;
+  // videoHeight = 140;
 
   video = mergeProps(video, {
       controls: false,
-      width: videoWidth,
-      height: videoHeight,
+      // width: videoWidth,
+      // height: videoHeight,
       src: URL.createObjectURL(stream)
   });
   video.play();
 
-  videosContainer.appendChild(video);
+  $(videosContainer).prepend(video);
 
+  if(location.pathname=="/videos/new") {
+    $(video).attr('id', 'full-view');
+  }
 };
 
-// $('#livefeed').onclick(function() {
-//   this.disabled = false;
-//     navigator.getUserMedia(mediaConstraints, onMediaSuccess, onMediaError);
+$('#title').keypress(function (e) {
+  if (e.which == 13) {
+    navigator.getUserMedia(mediaConstraints, onMediaSuccess, onMediaError);
+    console.log('start recording')
+  }
+});
+
+// $('#title').toggle(function (){
+//   $(this).keypress(function (e){
+//     if (e.which == 13) {
+//       navigator.getUserMedia(mediaConstraints, onMediaSuccess, onMediaError);
+//       console.log('start recording')
+//     }
+//   });
+// }, function (){
+//    $(this).keypress(function (e){
+//     if (e.which == 13) {
+//       mediaRecorder.stop();
+//       console.log('stop recording')
+//     }
+//   });
 // });
 
-// document.querySelector('#livefeed').onclick = function() {
-//     this.disabled = true;
-//     navigator.getUserMedia(mediaConstraints, onMediaSuccess, onMediaError);
-// };
+// $('#title').keypress(function (e) {
+//   if (e.which == 13) {
+//     mediaRecorder.stop();
+//     console.log('stop recording')
+//   }
+// });
 
 document.querySelector('#stop-recording').onclick = function() {
-    this.disabled = true;
+    // this.disabled = true;
     mediaRecorder.stop();
+    console.log('stop recording')
 };
 
 var mediaRecorder;
@@ -57,6 +81,10 @@ function onMediaSuccess(stream) {
     mediaRecorder.videoHeight = videoHeight;
 
     var title = document.getElementById('title').value
+
+    /////////////////////////////////////
+    ////// ---- RECORD VIDEO ---- ///////
+    /////////////////////////////////////
 
     mediaRecorder.ondataavailable = function(blob) {
       // var a = document.createElement('a');
@@ -77,7 +105,12 @@ function onMediaSuccess(stream) {
         src: URL.createObjectURL(blob)
       });
 
-      videosContainer.appendChild(newVid);
+
+
+
+      ///////////////////////////////////////////////////////////
+      ////// ---- formData and ajax to post to server ---- //////
+      ///////////////////////////////////////////////////////////
 
       var formData = new FormData();
       formData.append('video[title]', $('#title').val());
@@ -92,6 +125,10 @@ function onMediaSuccess(stream) {
         contentType: false
       }).done(function (data) {
         console.log('video blob sent', data);
+        app.videos = new app.Videos();
+        app.videos.fetch().done(function(){
+          var videoNew = new app.VideosView({collection: app.videos});
+        });
 
       });
 
@@ -103,7 +140,10 @@ function onMediaSuccess(stream) {
 
     // get blob after specific time interval
     mediaRecorder.start(timeInterval);
-
+    // mediaRecorder.stop();
+    setTimeout(function () {
+      mediaRecorder.stop();
+    }, timeInterval);
 
     document.querySelector('#stop-recording').disabled = false;
 

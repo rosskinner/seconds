@@ -33,6 +33,7 @@ class VideosController < ApplicationController
     file = @video.video.tempfile
 
     video = Panda::Video.create(:file => file)
+    # binding.pry
     video.encodings['h264'].reload
 
     until video.encodings['h264'].status == 'success'

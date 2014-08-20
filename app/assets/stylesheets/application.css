@@ -17,7 +17,23 @@
 @import url(http://fonts.googleapis.com/css?family=Vast+Shadow);
 @import url(http://fonts.googleapis.com/css?family=Oswald:400,700);
 
+header {
+  width: 12%;
+  display: inline-block;
+  background: #222222;
+  vertical-align: top;
+  height: 36px;
+  box-sizing:border-box;
+  text-align:center;
+}
 
+h2 {
+  margin:0;
+  padding:0;
+  font-family: inherit;
+  font-weight: inherit;
+  color: #FFF;
+}
 
 
 

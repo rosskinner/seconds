@@ -17,7 +17,8 @@
 //= require ./app/backbone.js
 //= require p5.js
 //= require p5.dom.js
-//= require videos.js
 //= require_tree ./app/models
 //= require_tree ./app/collections
+//= require_tree ./app/views
+//= require videos.js
 //= require_tree .

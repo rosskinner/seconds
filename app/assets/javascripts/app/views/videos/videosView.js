@@ -3,8 +3,7 @@ var app = app || {};
 app.VideosView = Backbone.View.extend({
   el: '.grid-video',
   initialize: function() {
-    // this.render();
-    this.fetchVideo();
+    this.render();
     console.log("rendering to page");
   },
   render: function () {
@@ -13,13 +12,8 @@ app.VideosView = Backbone.View.extend({
     var view = this;
     this.collection.each(function(videos) {
       var copy = video_list(videos.toJSON() )
-      view.$el.prepend( copy );
+      view.$el.append( copy );
     })
-  },
-  fetchVideo: function() {
-    this.fetch().done(function (){
-      this.render();
-    });
   }
   // view: function(e) {
   //   var inside = (e.target.id);
