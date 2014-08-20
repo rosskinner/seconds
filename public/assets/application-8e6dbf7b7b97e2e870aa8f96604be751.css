@@ -1,0 +1,162 @@
+/* line 5, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 100;
+  margin: 0;
+}
+
+/* line 11, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+button {
+  font-family: inherit;
+  font-weight: 100;
+  padding: 10px;
+  background-color: #3C5394;
+  border: none;
+  border-bottom: 4px solid #12182B;
+  color: #FFF;
+}
+
+/* line 21, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+.grid-video {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  display: inline;
+}
+
+/* line 44, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+video {
+  filter: grayscale(100%) contrast(140%) brightness(120%);
+  -webkit-filter: grayscale(100%) contrast(140%) brightness(120%);
+  -moz-filter: grayscale(100%) contrast(140%) brightness(120%);
+  display: inline-block;
+  width: 200px;
+  height: 140px;
+  text-align: center;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 100;
+  display: inline-block;
+  margin: 0;
+  margin-right: -12px;
+  margin-top: 2px;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+}
+
+/* line 64, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+#videos-container {
+  margin-top: 4px;
+}
+
+/* line 68, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 15em;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 0;
+  -webkit-transform: scale(1, 2.3);
+  position: absolute;
+  top: 1.05em;
+  z-index: 1;
+  color: #F20233;
+  opacity: 0.1;
+  text-transform: uppercase;
+}
+
+/* line 84, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+#title {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  font-family: 'oswald', sans-serif;
+  font-weight: inherit;
+  font-size: 20em;
+  text-align: center;
+  color: #F20233;
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  padding-bottom: 5px;
+  z-index: 10;
+  padding-right: 10px;
+  -webkit-transform: scale(1, 2);
+  opacity: 0.5;
+  text-transform: uppercase;
+}
+
+/* line 103, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+::-webkit-input-placeholder {
+  color: #F20233 !important;
+}
+
+/* line 107, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+input:-webkit-autofill {
+  background-color: #222222 !important;
+  color: #FFF !important;
+}
+
+/* line 112, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+input {
+  outline: none;
+}
+
+/* line 116, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+#input {
+  width: 87.2%;
+  display: inline-block;
+  margin-left: -4px;
+  box-sizing: border-box;
+}
+
+/* line 123, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+#full-view {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 128, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+.full-view-container {
+  overflow-y: hidden;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+
+@import url(http://fonts.googleapis.com/css?family=Vast+Shadow);
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,700);
+
+header {
+  width: 12%;
+  display: inline-block;
+  background: #222222;
+  vertical-align: top;
+  height: 36px;
+  box-sizing:border-box;
+  text-align:center;
+}
+
+h2 {
+  margin:0;
+  padding:0;
+  font-family: inherit;
+  font-weight: inherit;
+  color: #FFF;
+}
+
+
+
+
