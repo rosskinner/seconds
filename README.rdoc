@@ -1,28 +1,37 @@
-== README
+== SECONDS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Seconds is a small project that takes short 3 second videos using your device's web cam. The results are hilarious.
 
-Things you may want to cover:
+Have a play around here:
 
-* Ruby version
+http://seconds.herokuapp.com/
 
-* System dependencies
+Key languages and plugins:
 
-* Configuration
+* Ruby on Rails
 
-* Database creation
+* PandaStream for Rails
 
-* Database initialization
+* Amazon Web Services
 
-* How to run the test suite
+* Javascript
 
-* Services (job queues, cache servers, search engines, etc.)
+* WebRTC
 
-* Deployment instructions
+* Media Stream Recorder
 
-* ...
+* Backbone.js
+
+* Handlebars.js
+
+* Underscore.js
+
+* Velocity.js
+
+* Pace.js
+
+* SASS
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+
