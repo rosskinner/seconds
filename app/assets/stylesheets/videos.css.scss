@@ -1,7 +1,3 @@
-// Place all the styles related to the VIDEOS controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 body {
   font-family: 'Helvetica Neue', sans-serif;
   font-weight:100;
@@ -44,21 +40,6 @@ button {
     font-size: 0;
     line-height: 0
 }
-// .videos {
-//   width:200px;
-//   height:140px;
-//   text-align:center;
-//   font-family:'Helvetica Neue', sans-serif;
-//   font-weight:100;
-//   display:inline-block;
-//   margin:0;
-//   margin-right: -18px;
-//   margin-top: -4px;
-//   padding:0;
-//   // background-color: #B2D4DC;
-//   -webkit-box-sizing:border-box;
-//   // border: 0.1em solid #3E6372;
-// }
 
 video {
   filter: grayscale(100%) contrast(120%) brightness(140%);
@@ -139,7 +120,8 @@ input {
 
 .full-view-container {
   overflow-y: hidden;
-  margin-top: -20px;
+  margin-top: -22px;
+  padding:0;
 
 }
 
