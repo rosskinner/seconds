@@ -1,0 +1,258 @@
+/* line 5, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 100;
+  margin: 0;
+}
+
+/* line 11, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+button {
+  font-family: inherit;
+  font-weight: 100;
+  padding: 10px;
+  background-color: #3C5394;
+  border: none;
+  border-bottom: 4px solid #12182B;
+  color: #FFF;
+}
+
+/* line 21, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+.grid-video {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  display: inline;
+}
+
+/* line 44, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+video {
+  filter: grayscale(100%) contrast(140%) brightness(120%);
+  -webkit-filter: grayscale(100%) contrast(140%) brightness(120%);
+  -moz-filter: grayscale(100%) contrast(140%) brightness(120%);
+  display: inline-block;
+  width: 200px;
+  height: 140px;
+  text-align: center;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 100;
+  display: inline-block;
+  margin: 0;
+  margin-right: -12px;
+  margin-top: 2px;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+}
+
+/* line 64, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+.videos-container {
+  margin-top: 4px;
+}
+
+/* line 70, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+#title {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 18em;
+  text-align: center;
+  color: #F20233;
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  padding-bottom: 5px;
+  z-index: 10;
+  padding-right: 10px;
+  opacity: 0.5;
+  text-transform: uppercase;
+}
+
+/* line 88, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+::-webkit-input-placeholder {
+  color: #F20233 !important;
+  font-weight: 400;
+}
+
+/* line 93, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+input:-webkit-autofill {
+  background-color: #222222 !important;
+  color: #FFF !important;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+}
+
+/* line 100, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+input {
+  outline: none;
+  border: 1px solid #ccc;
+  padding: 5px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+}
+
+/* line 108, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+#input {
+  width: 87.2%;
+  display: inline-block;
+  margin-left: -4px;
+  box-sizing: border-box;
+}
+
+/* line 115, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+#full-view {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 121, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+.full-view-container {
+  overflow-y: hidden;
+  margin-top: -20px;
+}
+
+/* line 127, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+.record {
+  z-index: 20;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  color: #F20233;
+  text-decoration: none;
+  font-weight: 300;
+}
+/* line 135, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+.record li:before {
+  content: '\00b7';
+  font-size: 100px;
+  line-height: 0;
+  vertical-align: -26px;
+}
+/* line 141, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+.record li {
+  list-style: none;
+}
+
+/* line 146, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+.sign-in, .sign-up {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #FFF;
+  padding: 33px;
+  padding-top: 80px;
+  padding-bottom: 90px;
+  display: none;
+}
+
+/* line 158, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+.signin-button, .signup-button {
+  z-index: 1000;
+  position: fixed;
+  top: 30px;
+  left: 20px;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: 300;
+  color: #F20233;
+  background: #FFF;
+}
+
+/* line 170, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+.signup-button {
+  left: 100px;
+}
+
+/* line 174, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+.close {
+  padding: 10px;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  color: #F20233;
+}
+
+/* line 183, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+.submit {
+  border: 1px solid #F20233;
+  background: #FFF;
+  width: 125px;
+  padding: 5px;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 100;
+  margin-top: 10px;
+}
+
+/* line 194, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+.title {
+  position: fixed;
+  top: 0;
+  min-width: 100%;
+  white-space: nowrap;
+  padding-top: 5em;
+}
+
+/* line 224, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 18em;
+  text-align: center;
+  z-index: 1;
+  color: #F20233;
+  opacity: 0.5;
+  text-transform: uppercase;
+  display: inline;
+  white-space: nowrap;
+  padding: 0 50px;
+  display: hidden;
+}
+
+/* line 238, /Users/Ros/Projects/project3/secondloop/app/assets/stylesheets/videos.css.scss */
+.instruct {
+  top: 40px;
+  width: 200px;
+  text-align: right;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+
+@import url(http://fonts.googleapis.com/css?family=Vast+Shadow);
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,700);
+
+header {
+  width: 12%;
+  display: inline-block;
+  background: #222222;
+  vertical-align: top;
+  height: 36px;
+  box-sizing:border-box;
+  text-align:center;
+}
+
+h2 {
+  margin:0;
+  padding:0;
+  font-family: inherit;
+  font-weight: inherit;
+  color: #FFF;
+}
+
+
+
+
