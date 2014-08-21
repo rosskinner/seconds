@@ -15,6 +15,8 @@ app.VideosView = Backbone.View.extend({
       var copy = video_list(videos.toJSON() )
       view.$el.append( copy );
     })
+    var stretch = $("<span class='stretch' />");
+    stretch.appndTo(this.$el);
     var title = $("<div class='title' />");
     title.appendTo(this.$el);
     this.collection.each(function(videos) {

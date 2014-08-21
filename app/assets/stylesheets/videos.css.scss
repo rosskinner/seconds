@@ -23,8 +23,18 @@ button {
   margin:0 auto;
   text-align:center;
   display:inline;
+
+   text-align: justify;
+    -ms-text-justify: distribute-all-lines;
+    text-justify: distribute-all-lines;
 }
 
+.stretch {
+    width: 100%;
+    display: inline-block;
+    font-size: 0;
+    line-height: 0
+}
 // .videos {
 //   width:200px;
 //   height:140px;
