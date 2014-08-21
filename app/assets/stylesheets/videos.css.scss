@@ -29,6 +29,15 @@ button {
     text-justify: distribute-all-lines;
 }
 
+.grid-video {
+  content: "";
+  width: 100%;
+  display: inline-block;
+  vertical-align: bottom;
+  padding:0 8px;
+  box-sizing:border-box;
+}
+
 .stretch {
     width: 100%;
     display: inline-block;
@@ -57,13 +66,13 @@ video {
   -moz-filter: grayscale(100%) contrast(120%) brightness(140%);
   display:inline-block;
   width:200px;
-  height:140px;
+  height:150px;
   text-align:center;
   font-family:'Helvetica Neue', sans-serif;
   font-weight:100;
   display:inline-block;
   margin:0;
-  margin-right: -12px;
+  // margin-right: -12px;
   margin-top: 2px;
   padding:0;
   // background-color: #B2D4DC;

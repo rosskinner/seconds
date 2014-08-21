@@ -13,21 +13,20 @@ navigator.getUserMedia(mediaConstraints, onMedia, onMediaError)
 
 var videoWidth = 200;
 var videoHeight = 140;
+var video
 function onMedia(stream) {
   console.log('camera comes up on load');
-  var video = document.createElement('video');
-  // videoWidth = 200;
-  // videoHeight = 140;
+  video = document.createElement('video');
+  $(video).attr('class', 'live-stream');
 
   video = mergeProps(video, {
       controls: false,
-      // width: videoWidth,
-      // height: videoHeight,
       src: URL.createObjectURL(stream)
   });
   video.play();
 
-  $(videosContainer).prepend(video);
+  // $(videosContainer).prepend(video);
+  $('.grid-video').prepend(video);
 
   if(location.pathname=="/videos/new") {
     $(video).attr('id', 'full-view');
@@ -40,35 +39,6 @@ $('#title').keypress(function (e) {
     console.log('start recording')
   }
 });
-
-// $('#title').toggle(function (){
-//   $(this).keypress(function (e){
-//     if (e.which == 13) {
-//       navigator.getUserMedia(mediaConstraints, onMediaSuccess, onMediaError);
-//       console.log('start recording')
-//     }
-//   });
-// }, function (){
-//    $(this).keypress(function (e){
-//     if (e.which == 13) {
-//       mediaRecorder.stop();
-//       console.log('stop recording')
-//     }
-//   });
-// });
-
-// $('#title').keypress(function (e) {
-//   if (e.which == 13) {
-//     mediaRecorder.stop();
-//     console.log('stop recording')
-//   }
-// });
-
-// document.querySelector('#stop-recording').onclick = function() {
-//     // this.disabled = true;
-//     mediaRecorder.stop();
-//     console.log('stop recording')
-// };
 
 var mediaRecorder;
 
@@ -87,13 +57,6 @@ function onMediaSuccess(stream) {
     /////////////////////////////////////
 
     mediaRecorder.ondataavailable = function(blob) {
-      // var a = document.createElement('a');
-      // a.target = '_blank';
-      // a.innerHTML = title + ' (Size: ' + bytesToSize(blob.size) + ') Time Length: ' + getTimeLength(timeInterval);
-
-      // a.href = URL.createObjectURL(blob);
-
-      // videosContainer.appendChild(a);
 
       var newVid = document.createElement('video');
       newVid = mergeProps(newVid, {
