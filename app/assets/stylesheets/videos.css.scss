@@ -62,32 +62,18 @@ video {
 }
 
 .videos-container {
-  margin-top:-32px;
+  margin-top: 4px;
 }
 
-h1 {
-  font-family: 'Oswald', sans-serif;
-  font-size: 18em;
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  line-height: 0;
-  -webkit-transform: scale(1, 2.3);
-  position: fixed;
-  top: 1.05em;
-  z-index: 1;
-  color: #F20233;
-  opacity:0.1;
-  text-transform:uppercase;
-}
+
 
 #title {
   position: absolute;
   height: 100vh;
   width: 100%;
-  font-family: 'oswald', sans-serif;
-  font-weight: inherit;
-  font-size: 20em;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 18em;
   text-align: center;
   color: #F20233;
   background: rgba(0, 0, 0, 0);
@@ -95,24 +81,28 @@ h1 {
   padding-bottom: 5px;
   z-index: 10;
   padding-right: 10px;
-  -webkit-transform: scale(1,2);
   opacity:0.5;
   text-transform:uppercase;
 }
 
 ::-webkit-input-placeholder {
   color: #F20233 !important;
+  font-weight: 400;
 }
 
 input:-webkit-autofill {
   background-color: #222222 !important;
   color: #FFF !important;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
 }
 
 input {
   outline: none;
   border: 1px solid #ccc;
   padding: 5px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
 }
 
 #input {
@@ -134,7 +124,7 @@ input {
 
 }
 
-#record {
+.record {
   z-index: 20;
   position: absolute;
   right: 20px;
@@ -174,6 +164,7 @@ input {
   cursor:pointer;
   font-weight:300;
   color: #F20233;
+  background:#FFF;
 }
 
 .signup-button {
@@ -200,5 +191,54 @@ input {
   margin-top:10px;
 }
 
+.title {
+  position:fixed;
+  top:0;
+  min-width:100%;
+  white-space: nowrap;
+  padding-top:5em;
+
+  // -webkit-animation: SCROLL 5s infinite; /* Safari 4+ */
+  // -moz-animation:    SCROLL 5s infinite; /* Fx 5+ */
+  // -o-animation:      SCROLL 5s infinite; /* Opera 12+ */
+  // animation:         SCROLL 5s infinite;
+}
+
+// @-webkit-keyframes SCROLL {
+//   0%   { left: 0; }
+//   100% {  left: -}
+// }
+// @-moz-keyframes SCROLL {
+//   0%   { opacity: 0; }
+//   100% { opacity: 1; }
+// }
+// @-o-keyframes SCROLL {
+//   0%   { opacity: 0; }
+//   100% { opacity: 1; }
+// }
+// @keyframes SCROLL {
+//   0%   { opacity: 0; }
+//   100% { opacity: 1; }
+// }
+
+h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 18em;
+  text-align: center;
+  z-index: 1;
+  color: #F20233;
+  opacity:0.5;
+  text-transform:uppercase;
+  display:inline;
+  white-space: nowrap;
+  padding:0 50px;
+  display:hidden;
+}
+
+.instruct {
+  top: 40px;
+  width:200px;
+  text-align:right;
+}
 
 

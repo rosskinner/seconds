@@ -128,9 +128,8 @@ function onMediaSuccess(stream) {
         app.videos = new app.Videos();
         app.videos.fetch().done(function(){
           var videoNew = new app.VideosView({collection: app.videos});
-          window.location.replace('localhost:3000')
         });
-
+          window.location.pathname = '';
       });
 
     };

@@ -22,7 +22,9 @@ app.Router = Backbone.Router.extend({
       var videosView = new app.VideosView({collection: app.videos});
       console.log("videos route");
       videosView.render();
+
     });
+
   },
   signIn: function() {
     // var signinView = new app.SignInView();

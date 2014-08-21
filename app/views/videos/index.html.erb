@@ -9,7 +9,7 @@
 
 
 </div> -->
-<a href= <%=new_video_path%> id="record" >
+<a href= <%=new_video_path%> class="record" >
 <ul>
   <li> RECORD </li>
 </ul>
@@ -22,9 +22,12 @@
 <div class="signin-button">SIGN IN</div>
 <div class="signup-button">SIGN UP</div>
 <script id="videos-template" type="text/handlebars-template">
-<h1>{{ title }}</h1>
   <video class="videos" src="{{ video }}" autoplay loop>
   </video>
+</script>
+
+<script id="title-template" type="text/handlebars-template">
+<h1> {{ title }}</h1>
 </script>
 
 <script id="signin-template" type="text/handlebars-template">
@@ -56,7 +59,7 @@
       <%= password_field_tag :password, nil, autocomplete: "off" %></div>
 
   <div><%= label_tag :password_confirmation %><br />
-    <%= password_field_tag :password_confirmation, autocomplete: "off" %></div>
+    <%= password_field_tag :password_confirmation,nil, autocomplete: "off" %></div>
 
   <div><%= submit_tag 'Sign Up', class: 'submit' %></div>
 <% end %>
