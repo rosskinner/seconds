@@ -26,12 +26,6 @@ app.VideosView = Backbone.View.extend({
     console.log('length of collection' + length);
     var width = $('.title').width();
     console.log('width of titles is: ' + width);
-    // var scrollAcross = $('.title').velocity({
-    //   left: -width
-    // },
-    // complete: function() {
-    //   left: '0'
-    // });
 
     var scrollAcross =  function() {$('.title').velocity(
       {
@@ -45,19 +39,8 @@ app.VideosView = Backbone.View.extend({
           setTimeout(scrollAcross, 1000);
         }
       }
-    );
-  };
+      );
+    };
   scrollAcross();
-
-
-//   $("h1").each(function(index) {
-//     console.log(index);
-//     $(this).delay(2000*index).fadeOut(2000, 'linear');
-// });
-
   }
-  // view: function(e) {
-  //   var inside = (e.target.id);
-  //   app.router.navigate('videos/' + inside, true);
-  // }
 });
