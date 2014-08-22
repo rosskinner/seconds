@@ -12,8 +12,12 @@ app.VideosView = Backbone.View.extend({
     var title_list = Handlebars.compile(app.templates.titlesTemplate);
     var view = this;
     // $('.live-stream').appendTo(this.$el);
-    this.collection.each(function(videos) {
-      var copy = video_list(videos.toJSON() )
+    // var sample = _.sample(this.collection, 10);
+    // debugger;
+    var sample = app.videos.sample(49)
+    _.each(sample, function(videoModel) {
+
+      var copy = video_list(videoModel.toJSON() )
       view.$el.append( copy );
     })
 
