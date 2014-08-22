@@ -14,10 +14,10 @@ app.VideosView = Backbone.View.extend({
     // $('.live-stream').appendTo(this.$el);
     // var sample = _.sample(this.collection, 10);
     // debugger;
-    var sample = app.videos.sample(49)
+    var sample = app.videos.sample(35);
     _.each(sample, function(videoModel) {
 
-      var copy = video_list(videoModel.toJSON() )
+      var copy = video_list(videoModel.toJSON() );
       view.$el.append( copy );
     })
 
