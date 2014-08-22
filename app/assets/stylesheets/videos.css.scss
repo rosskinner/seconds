@@ -237,9 +237,12 @@ h1 {
 }
 
 .instruct {
-  top: 40px;
+  top: 60px;
   width:200px;
   text-align:right;
+  p {
+    margin:0;
+  }
 }
 
 .countdown {

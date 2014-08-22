@@ -112,7 +112,7 @@ function onMediaSuccess(stream) {
         app.videos.fetch().done(function(){
           var videoNew = new app.VideosView({collection: app.videos});
         });
-          window.location.pathname = '';
+          window.location.pathname = '/';
       });
 
     };
