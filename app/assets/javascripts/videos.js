@@ -36,7 +36,27 @@ function onMedia(stream) {
 $('#title').keypress(function (e) {
   if (e.which == 13) {
     navigator.getUserMedia(mediaConstraints, onMediaSuccess, onMediaError);
-    console.log('start recording')
+    console.log('start recording');
+var count=4;
+    timer();
+
+
+
+
+var counter=setInterval(timer, 1000); //1000 will  run it every 1 second
+
+function timer()
+{
+  count=count-1;
+  if (count <= 0)
+  {
+    clearInterval(counter);
+    $('.countdown').text('stop');
+    return;
+  }
+  $('.countdown').text(count);
+}
+
   }
 });
 

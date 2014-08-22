@@ -242,4 +242,14 @@ h1 {
   text-align:right;
 }
 
+.countdown {
+  font-size:5em;
+  position: absolute;
+  right: 20px;
+  bottom:20px;
+  z-index: 10000;
+  color: #F20233;
+  opacity:0.5;
+}
+
 
