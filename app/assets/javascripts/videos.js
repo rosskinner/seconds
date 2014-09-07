@@ -9,10 +9,10 @@ $(document).ready(function (){
 var mediaConstraints = { audio: !!navigator.mozGetUserMedia, video: true };
 
 //initializing the camera
-navigator.getUserMedia(mediaConstraints, onMedia, onMediaError)
+navigator.getUserMedia(mediaConstraints, onMedia, onMediaError);
 
 var videoWidth = 200;
-var videoHeight = 140;
+var videoHeight = 150;
 var video
 function onMedia(stream) {
   console.log('camera comes up on load');
@@ -33,30 +33,39 @@ function onMedia(stream) {
   }
 };
 
+console.log('input of value' + $('#title').val(function (){
+
+}));
+
+var title;
 $('#title').keypress(function (e) {
+
   if (e.which == 13) {
-    navigator.getUserMedia(mediaConstraints, onMediaSuccess, onMediaError);
-    console.log('start recording');
-var count=4;
-    timer();
+    title = $('#title').val();
+    // navigator.getUserMedia(mediaConstraints, onMedia, onMediaError);
+    if (navigator.getUserMedia(mediaConstraints, onMediaSuccess, onMediaError)) {
+      console.log('start recording');
+      timer();
+    }
+      ///////// countdown of video /////////////
 
 
+    var counter = setInterval(timer, 1000); //1000 will  run it every 1 second
+    var count=4;
+    function timer(){
+      count = count-1;
+      if (count <= 0)
+      {
+        clearInterval(counter);
+        $('#title').val('stop');
+        // $('.countdown').text('stop');
+        return;
+      }
+      $('#title').val(count);
+      console.log('count ' + count);
+      // $('.countdown').text(count);
 
-
-var counter=setInterval(timer, 1000); //1000 will  run it every 1 second
-
-function timer()
-{
-  count=count-1;
-  if (count <= 0)
-  {
-    clearInterval(counter);
-    $('.countdown').text('stop');
-    return;
-  }
-  $('.countdown').text(count);
-}
-
+    }
   }
 });
 
@@ -70,7 +79,7 @@ function onMediaSuccess(stream) {
     mediaRecorder.videoWidth  = videoWidth;
     mediaRecorder.videoHeight = videoHeight;
 
-    var title = document.getElementById('title').value
+    // var title = document.getElementById('title').value
 
     /////////////////////////////////////
     ////// ---- RECORD VIDEO ---- ///////
@@ -96,7 +105,7 @@ function onMediaSuccess(stream) {
       ///////////////////////////////////////////////////////////
 
       var formData = new FormData();
-      formData.append('video[title]', $('#title').val());
+      formData.append('video[title]', title);
       formData.append('video[video]', blob);
       formData.append('fname', 'seconds.webm'); // Check this extension?
       formData.append('data', blob);
@@ -128,7 +137,7 @@ function onMediaSuccess(stream) {
       mediaRecorder.stop();
     }, timeInterval);
 
-    document.querySelector('#stop-recording').disabled = false;
+    // document.querySelector('#stop-recording').disabled = false;
 
 }
 
@@ -154,9 +163,9 @@ function getTimeLength(milliseconds) {
     return data.getUTCHours()+" hours, "+data.getUTCMinutes()+" minutes and "+data.getUTCSeconds()+" second(s)";
 }
 
-window.onbeforeunload = function() {
-    document.querySelector('#start-recording').disabled = false;
-};
+// window.onbeforeunload = function() {
+//     document.querySelector('#start-recording').disabled = false;
+// };
 
 $('.signin-button').on('click', function() {
   $('.sign-in').show();

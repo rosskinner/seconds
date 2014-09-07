@@ -8,5 +8,19 @@ $(document).ready(function (){
   }
   app.router = new app.Router();
   Backbone.history.start();
-  console.log("main.js ready")
+  console.log("main.js ready");
+
+  ////////// ABOUT POP-UP ////////////
+
+$('.about').css({
+  'left': ($(window).width()/2) - 200,
+  'top': $(window).height()/2 - 150
+});
+
+$('.about').click(function () {
+  $('.about').css({
+    'display': 'none'
+  });
+});
+
 });
