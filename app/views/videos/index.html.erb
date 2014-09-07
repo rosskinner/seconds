@@ -23,7 +23,10 @@
 </div>
 <!-- <a id="record" disabled>Stop Recording</button> -->
 <div class="videos-container"><div class="grid-video"></div></div>
-
+<div class="socialmedia">
+  <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://dev.twitter.com" data-via="your_screen_name" data-lang="en">Tweet</a>
+  <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fseconds.herokuapp.com&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=265218853682249" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;width:150px;" allowTransparency="true"></iframe>
+</div>
 <!-- <div class="sign-in"></div>
 <div class="sign-up"></div>
 <div class="signin-button">SIGN IN</div>
@@ -74,5 +77,8 @@
 <%= render "users/shared/links" %>
 <div class="close">CLOSE X</div>
 </script>
+
+<!-- social media share -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
 

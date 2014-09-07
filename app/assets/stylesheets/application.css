@@ -35,6 +35,13 @@ h2 {
   color: #FFF;
 }
 
+.socialmedia {
+  position: absolute;
+  z-index: 1000;
+  right: 10px;
+  bottom: 10px;
+}
+
 
 
 
