@@ -38,36 +38,17 @@ console.log('input of value' + $('#title').val(function (){
 }));
 
 var title;
-$('#title').keypress(function (e) {
 
+///////// RECORD ON 'ENTER' KEY /////////////
+
+$('#title').keypress(function (e) {
   if (e.which == 13) {
     title = $('#title').val();
-    // navigator.getUserMedia(mediaConstraints, onMedia, onMediaError);
-    if (navigator.getUserMedia(mediaConstraints, onMediaSuccess, onMediaError)) {
-      console.log('start recording');
-      timer();
-    }
-      ///////// countdown of video /////////////
-
-
-    var counter = setInterval(timer, 1000); //1000 will  run it every 1 second
-    var count=4;
-    function timer(){
-      count = count-1;
-      if (count <= 0)
-      {
-        clearInterval(counter);
-        $('#title').val('stop');
-        // $('.countdown').text('stop');
-        return;
-      }
-      $('#title').val(count);
-      console.log('count ' + count);
-      // $('.countdown').text(count);
-
-    }
+    navigator.getUserMedia(mediaConstraints, onMediaSuccess, onMediaError);
   }
 });
+
+
 
 var mediaRecorder;
 
@@ -78,8 +59,6 @@ function onMediaSuccess(stream) {
     mediaRecorder.mimeType = 'video/webm'; // this line is mandatory
     mediaRecorder.videoWidth  = videoWidth;
     mediaRecorder.videoHeight = videoHeight;
-
-    // var title = document.getElementById('title').value
 
     /////////////////////////////////////
     ////// ---- RECORD VIDEO ---- ///////
@@ -130,15 +109,27 @@ function onMediaSuccess(stream) {
     if(timeInterval) timeInterval = parseInt(timeInterval);
     else timeInterval = 5 * 1000;
 
-    // get blob after specific time interval
+    var counter = setInterval(timer, 1000); //1000 will  run it every 1 second
+    var count=4;
+
     mediaRecorder.start(timeInterval);
-    // mediaRecorder.stop();
+    timer();
+
     setTimeout(function () {
       mediaRecorder.stop();
     }, timeInterval);
 
-    // document.querySelector('#stop-recording').disabled = false;
-
+    ///////// countdown of video /////////////
+    function timer(){
+      count = count-1;
+      if (count <= 0)
+      {
+        clearInterval(counter);
+        $('#title').val('stop');
+        return;
+      }
+      $('#title').val(count);
+    }
 }
 
 function onMediaError(e) {
