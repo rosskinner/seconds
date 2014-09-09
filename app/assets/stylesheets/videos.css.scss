@@ -2,6 +2,7 @@ body {
   font-family: 'Helvetica Neue', sans-serif;
   font-weight:100;
   margin:0;
+  overflow: hidden;
 }
 
 button {
@@ -129,7 +130,7 @@ input {
 }
 
 #full-view {
-   -webkit-transform: scale(4);
+   -webkit-transform: scale(4.5);
   overflow: hidden;
   position: relative;
   // top: 300px;
