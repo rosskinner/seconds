@@ -17,7 +17,7 @@ var video
 function onMedia(stream) {
   console.log('camera comes up on load');
   video = document.createElement('video');
-  $(video).attr('class', 'live-stream');
+  $(video).attr('class', 'live-stream-full');
 
   video = mergeProps(video, {
       controls: false,
